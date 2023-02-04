@@ -16,13 +16,13 @@ public class GRPCClientService {
     public String ping() {
         	ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9090)
                 .usePlaintext()
-                .build();        
+                .build();
 		PingPongServiceGrpc.PingPongServiceBlockingStub stub
-                = PingPongServiceGrpc.newBlockingStub(channel);        
+                = PingPongServiceGrpc.newBlockingStub(channel);
 		PongResponse helloResponse = stub.ping(PingRequest.newBuilder()
                 .setPing("")
-                .build());        
-		channel.shutdown();        
+                .build());
+		channel.shutdown();
 		return helloResponse.getPong();
     }
     public String add(){
@@ -31,7 +31,7 @@ public class GRPCClientService {
 		.build();
 		MatrixServiceGrpc.MatrixServiceBlockingStub stub
 		 = MatrixServiceGrpc.newBlockingStub(channel);
-		MatrixReply A=stub.addBlock(MatrixRequest.newBuilder()
+		MatrixReply A=stub.multiplyBlock(MatrixRequest.newBuilder()
 			.setA00(1)
 			.setA01(2)
 			.setA10(5)
