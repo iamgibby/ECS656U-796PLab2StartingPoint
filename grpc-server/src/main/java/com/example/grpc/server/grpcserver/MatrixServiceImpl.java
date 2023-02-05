@@ -26,7 +26,7 @@ public class MatrixServiceImpl extends MatrixServiceGrpc.MatrixServiceImplBase
 				//int C10=request.getA10()*request.getB00()+request.getA11()*request.getB10();//good
 				//int C01=request.getA00()*request.getB01()+request.getA01()*request.getB11();//good
 				//int C11=request.getA10()*request.getB01()+request.getA11()*request.getB11();
-				String resp= request.getA00()+request.getA01()+request.getA10()+request.getA11()+request.getB00()+request.getB01()+request.getB10()+request.getB11();
+				int resp= request.getA00()+request.getA01()+request.getA10()+request.getA11()+request.getB00()+request.getB01()+request.getB10()+request.getB11();
         MatrixReply response = MatrixReply.newBuilder().setC00(resp).build();
         reply.onNext(response);
         reply.onCompleted();
